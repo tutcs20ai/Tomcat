@@ -3,7 +3,8 @@
 削除: docker-compose down --rmi all  \
 実行: docker-compose exec "container_name" "command"  \
 ファイル場所: code/, javabweb/ 以下  \
-データベース場所: db/ 以下
+データベース場所: db/ 以下  \
+アクセス: localhost:8888 (adminer -> localhost:8080)
   
 ### 注意
 - mysqlのドライバ等追加でダウンロードし特定フォルダに移動する必要有り
