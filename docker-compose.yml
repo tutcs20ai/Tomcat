@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  mysql:
+    image: ghcr.io/1219mai0410/mysql
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db:/db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hoge
+      MYSQL_USER: hoge
+      MYSQL_PASSWORD: hoge
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: ghcr.io/1219mai0410/adminer
+    container_name: adminer
+    ports:
+      - 8080:8080
+
+  java:
+    # build: ./
+    image: ghcr.io/1219mai0410/java
+    container_name: java
+    volumes:
+      - ./code:/code
+      - ./javabweb:/opt/apache-tomcat-8.5.73/webapps/javabweb
+    working_dir: /code
+    tty: true
+    ports:
+      - 8888:8080
